@@ -1,113 +1,113 @@
 ---
-title: 主題上手指南
+title: 主题上手指南
 published: 2025-01-26
 updated: 2025-04-13
 tags:
-  - 部落格主題
+  - 博客主题
   - 指南
-pin: 99
-lang: zh-tw
+pin: 0
+lang: zh
 abbrlink: theme-guide
 ---
 
-Retypeset 是一款基於 [Astro](https://astro.build/) 框架的靜態部落格主題，中文名為重新編排。本文為 Retypeset 主題上手指南，主要介紹如何修改主題配置與創建新文章，來幫助你快速搭建個人部落格。
+Retypeset 是一款基于 [Astro](https://astro.build/) 框架的静态博客主题，中文名为重新编排。本文为 Retypeset 主题上手指南，主要介绍如何修改主题配置与创建新文章，来帮助你快速搭建个人博客。
 
-## 主題配置
+## 主题配置
 
-通過修改配置文件 [src/config.ts](https://github.com/radishzzz/astro-theme-retypeset/blob/master/src/config.ts) 來自定義你的部落格。
+通过修改配置文件 [src/config.ts](https://github.com/radishzzz/astro-theme-retypeset/blob/master/src/config.ts) 来自定义你的博客。
 
-### 站點信息
+### 站点信息
 
 ```ts
 site: {
-  // 站點標題
+  // 站点标题
   title: 'Retypeset'
-  // 站點副標題
+  // 站点副标题
   subtitle: 'Revive the beauty of typography'
-  // 站點描述
+  // 站点描述
   description: 'Retypeset is a static blog theme...'
-  // 使用 src/i18n/ui.ts 中的多語言標題/副標題/站點描述，代替上方靜態配置
+  // 使用 src/i18n/ui.ts 中的多语言标题/副标题/站点描述，代替上方静态配置
   i18nTitle: true // true | false
-  // 作者名稱
+  // 作者名称
   author: 'radishzz'
-  // 站點地址
+  // 站点地址
   url: 'https://retypeset.radishzz.cc'
-  // 基礎路徑
-  // 所有頁面和資產的根目錄
+  // 基础路径
+  // 所有页面和资产的根目录
   base: '/' // 例如 '/blog', '/docs'
-  // 站點圖標
-  // 推薦格式：svg, png, ico
+  // 站点图标
+  // 推荐格式：svg, png, ico
   favicon: '/icons/favicon.svg' // 或 https://example.com/favicon.svg
 }
 ```
 
-### 主題配色
+### 主题配色
 
 ```ts
 color: {
-  // 預設主題
+  // 默认主题
   mode: 'light' // light | dark | auto
   // 亮色模式
   light: {
-    // 主要顏色
-    // 用於站點標題、滑鼠懸停效果等
+    // 主要颜色
+    // 用于站点标题、鼠标悬停效果等
     primary: 'oklch(25% 0.005 298)'
-    // 次要顏色
-    // 用於普通文本
+    // 次要颜色
+    // 用于普通文本
     secondary: 'oklch(40% 0.005 298)'
     // 背景色
     background: 'oklch(96% 0.005 298)'
-    // 高亮顏色
-    // 用於導航欄、選中文本等
+    // 高亮颜色
+    // 用于导航栏、选中文本等
     highlight: 'oklch(0.93 0.195089 103.2532 / 0.5)'
   }
   // 暗色模式
   dark: {
-    // 主要顏色
+    // 主要颜色
     primary: 'oklch(92% 0.005 298)'
-    // 次要顏色
+    // 次要颜色
     secondary: 'oklch(77% 0.005 298)'
     // 背景色
     background: 'oklch(22% 0.005 298)'
-    // 高亮顏色
-    highlight: 'oklch(0.93 0.195089 103.2532 / 0.2)'
+    // 高亮颜色
+    highlight: 'oklch(0.93 0.195089 103.2532 / 0.5)'
   }
 }
 ```
 
-### 全局設置
+### 全局设置
 
 ```ts
 global: {
-  // 預設語言
-  // 站點根路徑 '/' 的語言
+  // 默认语言
+  // 站点根路径 '/' 的语言
   locale: 'zh' // de | en | es | fr | ja | ko | pl | pt | ru | zh | zh-tw
-  // 更多語言
-  // 生成 '/en/' '/es/' 等多語言路徑
-  // 不要重複填寫預設語言，可以為空 []
+  // 更多语言
+  // 生成 '/en/' '/es/' 等多语言路径
+  // 不要重复填写默认语言，可以为空 []
   moreLocales: ['en', 'es', 'ja', 'ru', 'zh-tw'] // ['de', 'en', 'es', 'fr', 'ja', 'ko', 'pl', 'pt', 'ru', 'zh', 'zh-tw']
-  // 文章字體樣式
+  // 字体样式
   fontStyle: 'sans' // sans | serif
   // 文章日期格式
   // YYYY-MM-DD | MM-DD-YYYY | DD-MM-YYYY | MMM D YYYY | D MMM YYYY
   // 2025-04-13, 04-13-2025, 13-04-2025, Apr 13 2025，13 Apr 2025
   dateFormat: 'YYYY-MM-DD'
-  // 啟用文章目錄
+  // 开启文章目录
   toc: true // true | false
-  // 啟用 katex 數學渲染
+  // 开启 KaTeX 数学渲染
   katex: true // true | false
-  // 減少動畫效果
+  // 减少动画效果
   reduceMotion: false // true | false
 }
 ```
 
-### 評論系統
+### 评论系统
 
 ```ts
 comment: {
-  // 啟用評論系統
+  // 开启评论系统
   enabled: true // true | false
-  // giscus 評論系統
+  // giscus 评论系统
   giscus: {
     repo: ''
     repoId: ''
@@ -119,14 +119,14 @@ comment: {
     emitMetadata: '0'
     inputPosition: 'bottom'
   }
-  // twikoo 評論系統
+  // twikoo 评论系统
   twikoo: {
     envId: ''
     // version: 前端版本可在 package.json 中修改
   }
-  // waline 評論系統
+  // waline 评论系统
   waline: {
-    // 服務器地址
+    // 服务器地址
     serverURL: 'https://retypeset-comment.radishzz.cc'
     // emoji 表情地址
     emoji: [
@@ -136,52 +136,52 @@ comment: {
     ]
     // gif 搜索
     search: false // true | false
-    // 圖片上傳
+    // 图片上传
     imageUploader: false // true | false
   }
 }
 ```
 
-### 搜索引擎優化
+### 搜索引擎优化
 
 ```ts
 seo: {
   // @twitter ID
   twitterID: '@radishzz_'
-  // 站點驗證
+  // 站点验证
   verification: {
     // google 搜索控制台
     google: 'AUCrz5F1e5qbnmKKDXl2Sf8u6y0kOpEO1wLs6HMMmlM'
-    // bing 網站管理員工具
+    // bing 网站管理员工具
     bing: '64708CD514011A7965C84DDE1D169F87'
-    // yandex 網站管理員
+    // yandex 网站管理员
     yandex: ''
-    // baidu 站長工具
+    // baidu 站长工具
     baidu: ''
   }
-  // google 網站分析
+  // google 网站分析
   googleAnalyticsID: ''
-  // umami 網站分析
+  // umami 网站分析
   umamiAnalyticsID: 'dab0e4b9-9cbf-43c3-af60-b09d3b545c38'
-  // follow 驗證
+  // follow 验证
   follow: {
-    // 訂閱 ID
+    // 订阅 ID
     feedID: ''
-    // 用戶 ID
+    // 用户 ID
     userID: ''
   }
-  // apiflash 訪問密鑰
-  // 生成網站截圖用於 open graph
-  // 獲取訪問密鑰：https://apiflash.com/
+  // apiflash 访问密钥
+  // 生成网站截图用于 open graph
+  // 获取访问密钥：https://apiflash.com/
   apiflashKey: ''
 }
 ```
 
-### 自定義頁腳
+### 自定义页脚
 
 ```ts
 footer: {
-  // 社交鏈接
+  // 社交链接
   links: [
     {
       name: 'RSS',
@@ -205,82 +205,82 @@ footer: {
 }
 ```
 
-### 資源預加載
+### 资源预加载
 
 ```ts
 preload: {
-  // 圖床地址
-  // 優化遠程圖片並生成低質量占位圖
+  // 图床地址
+  // 优化远程图片并生成低质量占位符
   imageHostURL: 'image.radishzz.cc'
-  // 定制 google analytics 跟蹤腳本
-  // 適用於代理跟蹤腳本到自定義域名的用戶
+  // 定制 google analytics 跟踪脚本
+  // 适用于代理跟踪脚本到自定义域名的用户
   customGoogleAnalyticsJS: ''
-  // 定制 umami 跟蹤腳本
-  // 適用於自部署 umami 或代理跟蹤腳本到自定義域名的用戶
+  // 定制 umami 跟踪脚本
+  // 适用于自部署 umami 或代理跟踪脚本到自定义域名的用户
   customUmamiAnalyticsJS: 'https://views.radishzz.cc/script.js'
 }
 ```
 
 ## 更多配置
 
-除了配置文件 `src/config.ts` 外，還有部分配置項位於其它文件中。
+除了配置文件 `src/config.ts` 外，还有部分配置项位于其它文件中。
 
-### 語法高亮
+### 语法高亮
 
-代碼塊的語法高亮主題。
+代码块的语法高亮主题。
 
 ```ts
 // astro.config.ts
 
 shikiConfig: {
-  // 可選主題：https://shiki.style/themes
-  // 背景色預設跟隨部落格主題，而非語法高亮主題
+  // 可选主题：https://shiki.style/themes
+  // 背景色固定跟随博客主题，而非语法高亮主题
   themes: {
-    light: 'github-light' // 亮色主題
-    dark: 'github-dark' // 暗色主題
+    light: 'github-light' // 亮色主题
+    dark: 'github-dark' // 暗色主题
   }
 }
 ```
 
 ### 文章摘要
 
-文章自動摘要的字元數量。
+文章自动摘要的字符数量。
 
 ```ts
 // src/utils/description.ts
 
 const excerptLengths: Record<ExcerptScene, {
-  cjk: number // 中文、日文、韓文
-  other: number // 其他語言
+  cjk: number // 中文、日文、韩文
+  other: number // 其他语言
 }> = {
-  list: { // 首頁文章列表
-    cjk: 120, // 自動摘要前 120 字
-    other: 240, // 自動摘要前 240 字
+  list: { // 首页文章列表
+    cjk: 120, // 自动摘要前 120 字
+    other: 240, // 自动摘要前 240 字
   },
 }
 ```
 
 ### Open Graph
 
-[Open Graph 社交卡片](https://orcascan.com/tools/open-graph-validator?url=https%3A%2F%2Fretypeset.radishzz.cc%2Fzh-tw%2Fposts%2Ftheme-guide%2F) 樣式。
+[Open Graph 社交卡片](https://orcascan.com/tools/open-graph-validator?url=https%3A%2F%2Fretypeset.radishzz.cc%2Fposts%2Ftheme-guide%2F) 样式。
 
 ```ts
 // src/pages/og/[...image].ts
 
 getImageOptions: (_path, page) => ({
   logo: {
-    path: './public/icons/og-logo.png', // 本地路徑的 PNG 圖片
-    size: [250], // logo 寬度
+    path: './public/icons/og-logo.png', // 本地路径的 PNG 图片
+    size: [250], // logo 宽度
   },
   font: {
-    title: { // 標題
-      families: ['Noto Sans SC'], // 字體
+    title: { // 标题
+      families: ['Noto Sans SC'], // 字体
       weight: 'Bold', // 字重
-      color: [34, 33, 36], // 顏色
+      color: [34, 33, 36], // 颜色
       lineHeight: 1.5, // 行高
     },
   },
-  fonts: [ // 字體路徑（本地或遠程）
+  fonts: [ // 字体路径（本地或远程）
     'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/SC/NotoSansSC-Bold.otf',
     'https://cdn.jsdelivr.net/gh/notofonts/noto-cjk@main/Sans/SubsetOTF/SC/NotoSansSC-Regular.otf',
   ],
@@ -289,23 +289,23 @@ getImageOptions: (_path, page) => ({
 })
 ```
 
-### RSS 訂閱
+### RSS 订阅
 
-[RSS 訂閱頁](https://retypeset.radishzz.cc/zh-tw/atom.xml) 配色。
+[RSS 订阅页](https://retypeset.radishzz.cc/atom.xml) 配色。
 
 ```html
 <!-- public/feeds/xxx-style.xsl -->
 
 <style type="text/css">
-body{color:oklch(25% 0.005 298)} /* 字體顏色 */
-.bg-white{background-color:oklch(0.96 0.005 298)!important} /* 背景顏色 */
-.text-gray{color:oklch(0.25 0.005 298 / 75%)!important} /* 次要字體顏色 */
+body{color:oklch(25% 0.005 298)} /* 字体颜色 */
+.bg-white{background-color:oklch(0.96 0.005 298)!important} /* 背景颜色 */
+.text-gray{color:oklch(0.25 0.005 298 / 75%)!important} /* 次要字体颜色 */
 </style>
 ```
 
-## 創建新文章
+## 创建新文章
 
-執行 `pnpm new-post <filename>` 創建新文章，可在 `src/content/posts/` 目錄中編輯。
+执行 `pnpm new-post <filename>` 创建新文章，可在 `src/content/posts/` 目录中编辑。
 
 ```bash
 pnpm new-post                      ->  src/content/posts/new-post.md
@@ -316,22 +316,22 @@ pnpm new-post first-post.mdx       ->  src/content/posts/first-post.mdx
 
 ### Front Matter
 
-`title` 和 `published` 為必填項，其餘配置均可刪除。
+`title` 和 `published` 为必填项，其余配置均可删除。
 
 ```md
 ---
 # 必填
-title: 主題上手指南
+title: 主题上手指南
 published: 2025-01-26
 
-# 可選
-description: 自動選取文章前 120 字作為摘要。
+# 可选
+description: 自动选取文章前 120 字作为摘要。
 updated: 2025-03-26
 tags:
-  - 部落格主題
+  - 博客主题
   - 指南
 
-# 進階，可選
+# 进阶，可选
 draft: true/false
 pin: 0-99
 toc: true/false
@@ -340,23 +340,23 @@ abbrlink: theme-guide
 ---
 ```
 
-### 進階配置
+### 进阶配置
 
 #### draft
 
-是否標記文章為草稿。設為 true 時無法發佈文章，僅供本地開發預覽。預設為 false。
+是否标记文章为草稿。设为 true 时无法发布文章，仅供本地开发预览。默认为 false。
 
 #### pin
 
-是否置頂文章。數字越大，文章的置頂優先級越高。預設為 0，即不置頂。
+是否置顶文章。数字越大，文章的置顶优先级越高。默认为 0，即不置顶。
 
 #### toc
 
-是否生成目錄。顯示 h2 至 h4 標題。預設由全域配置項 `global.toc` 決定，可在文章中單獨設定以覆蓋全域配置。
+是否生成目录。显示 h2 至 h4 标题。默认由全局配置项 `global.toc` 决定，可在文章中单独设置以覆盖全局配置。
 
 #### lang
 
-指定文章語言。只能指定一種語言，不指定則預設顯示在所有語言路徑下。
+指定文章语言。只能指定一种语言，不指定则默认显示在所有语言路径下。
 
 ```md
 # src/config.ts
@@ -377,7 +377,7 @@ src/content/posts/apple.md   ->  example.com/ru/posts/apple/
 
 #### abbrlink
 
-自定義文章 URL。只能包含小寫字母、數字和連字符 `-`。
+自定义文章 URL。只能包含小写字母、数字和连字符 `-`。
 
 ```md
 # src/config.ts
@@ -396,9 +396,9 @@ src/content/posts/guide/apple.md     ->  example.com/es/posts/banana/
 src/content/posts/2025/03/apple.md   ->  example.com/es/posts/banana/
 ```
 
-### 混排優化
+### 混排优化
 
-執行 `pnpm format-posts`，可優化 `src/content/` 目錄中 Markdown 文件的排版格式。在 CJK（中文、日文、韓文）與英文混寫的場景下，補充正確的空格，糾正標點符號等。
+执行 `pnpm format-posts`，可优化 `src/content/` 目录中 Markdown 文件的排版格式。在 CJK（中文、日文、韩文）与英文混写的场景下，补充正确的空格，纠正标点符号等。
 
 ```bash
 pnpm format-posts
