@@ -14,7 +14,7 @@ export const themeConfig: ThemeConfig = {
     // author name
     author: '林间',
     // site url
-    url: 'http://blog.liin.top', // e.g., https://example.com
+    url: 'https://blog.liin.top', // e.g., https://example.com
     // base path
     // root directory for all pages and assets
     base: '/', // e.g., '/blog', '/docs'
