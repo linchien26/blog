@@ -26,8 +26,8 @@ const imageConfig = imageHostURL
   : {}
 
 export default defineConfig({
-  site: 'https://blog.liin.top',
-  base: '/',
+  site,
+  base,
   trailingSlash: 'always', // Not recommended to change
   prefetch: {
     prefetchAll: true,

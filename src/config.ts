@@ -14,10 +14,10 @@ export const themeConfig: ThemeConfig = {
     // author name
     author: '林间',
     // site url
-    //url: 'https://blog.liin.top', // e.g., https://example.com
+    url: 'https://blog.liin.top', // e.g., https://example.com
     // base path
     // root directory for all pages and assets
-    //base: '/', // e.g., '/blog', '/docs'
+    base: '/', // e.g., '/blog', '/docs'
     // favicon url
     // recommended formats: svg, png or ico
     favicon: '/icons/favicon.svg', // or https://example.com/favicon.svg
